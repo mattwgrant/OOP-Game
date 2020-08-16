@@ -1,3 +1,7 @@
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * Phrase.js */
+// handle creation of phrases
+
+class Phrase {
+	constructor(phrase) {
+		this.phrase = phrase;
+	}
+}
