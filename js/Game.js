@@ -21,7 +21,6 @@ class Game {
 		return phrases.map(phrase => new Phrase(phrase));
 	}
 
-
 	/*
 	 * Selects random phrase from the phrase property
 	 * @return {Object} Phrase object chosen to be used
@@ -31,5 +30,14 @@ class Game {
 		let phrase = this.phrases[randomPhrase];
 		return phrase;
 	}
+
+	/**
+	 * Begins game by selecting a random phrase and displaying it to the user
+	 */
+	 startGame() {
+	 	document.getElementById('overlay').style.visibility = 'hidden';
+	 	this.getRandomPhrase().addPhraseToDisplay();
+	 	this.activePhrase = this.getRandomPhrase();
+	 }
 
 }
