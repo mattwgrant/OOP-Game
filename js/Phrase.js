@@ -26,8 +26,22 @@ class Phrase {
 	 			ul.appendChild(li);
 	 		} 
 	 	});
-
 	 }
 
+	 /**
+	  * Checkes if passed letter is in the phrase
+	  * @param {string} letter - Letter to check
+	  */
+	  checksLetter(letter) {
+
+	  };
+
+	  /**
+	  * Displays passed letter on the screen if a match is found
+	  * @param {string} letter - Letter to display
+	  */
+	  showMatchedLetter(letter) {
+
+	  };
 }
 
