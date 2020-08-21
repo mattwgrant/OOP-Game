@@ -28,20 +28,33 @@ class Phrase {
 	 	});
 	 }
 
-	 /**
-	  * Checkes if passed letter is in the phrase
-	  * @param {string} letter - Letter to check
-	  */
-	  checksLetter(letter) {
+	/**
+	 * Checks if passed letter is in the phrase
+	 * @param {string} letter - Letter to check
+     */
+	 checkLetter(letter) {
+	  let currentPhrase = game.activePhrase.phrase;
+	  	
+	  if ( currentPhrase.indexOf(letter) > -1 ) {
+	  	return true
+	  } else {
+	  	return false;
+	  }
 
-	  };
+	 };
 
-	  /**
+
+	/**
 	  * Displays passed letter on the screen if a match is found
 	  * @param {string} letter - Letter to display
 	  */
 	  showMatchedLetter(letter) {
-
-	  };
+  		let letterToDisplay = document.getElementsByClassName(`hide letter ${letter}`);
+  		for ( let i = 0; i < letterToDisplay.length; i++ ) {
+  			// letterToDisplay[i].className = `show letter ${letter}`;
+  			console.log(letterToDisplay[i]);
+  		}
+  	  }
+	  
 }
 

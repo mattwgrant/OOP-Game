@@ -46,21 +46,21 @@ class Game {
 	  * checkForWin(), removeLife(), gameOver() from Game class
 	  * checkLetter(), showMatchedLetter() from Phrase class
 	  */
-	 handleInteraction() {
+	 // handleInteraction() {
 
-	 }
+	 // }
 
 	 /**
 	  * Checks for winning move
 	  * @return {boolean} True if game has been won, false if it has not
 	  */
-	  checkForWin() {
-	  	if () {
-	  		return true
-	  	} else {
-	  		return false;
-	  	}
-	  }
+	  // checkForWin() {
+	  // 	if () {
+	  // 		return true
+	  // 	} else {
+	  // 		return false;
+	  // 	}
+	  // }
 
 	  /**
 	  * Increases the value of the missed property
@@ -75,11 +75,11 @@ class Game {
 	  * Displays game over message
 	  * @param {boolean} gameWon - Whether or note the user won the game
 	  */
-	  gameOver(gameWon) {
-	  	if () {
+	  // gameOver(gameWon) {
+	  // 	if () {
 
-	  	} else {
+	  // 	} else {
 
-	  	}
-	  }
+	  // 	}
+	  // }
 }
