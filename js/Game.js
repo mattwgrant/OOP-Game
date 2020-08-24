@@ -47,29 +47,38 @@ class Game {
 	  * checkLetter(), showMatchedLetter() from Phrase class
 	  */
 	 // handleInteraction() {
-
+	 // 	checkForWin();
+	 // 	removeLife();
+	 // 	gameOver();
+	 // 	checkLetter();
+	 // 	showMatchedLetter();
 	 // }
 
 	 /**
 	  * Checks for winning move
 	  * @return {boolean} True if game has been won, false if it has not
 	  */
-	  // checkForWin() {
-	  // 	if () {
-	  // 		return true
-	  // 	} else {
-	  // 		return false;
-	  // 	}
-	  // }
-
+	  checkForWin() {
+	  	const active = document.querySelectorAll('#phrase ul li');
+	  	const condition = function (letter) {
+	  		for ( let i = 0; i < active.length; i++ ) {
+	  			if( active[i].className.charAt(0) === 's') {
+	  				return true;
+	  			} else {
+	  				return false;
+	  			}
+	  		}
+	  	};
+	  	active.every(condition);
+	  }
 	  /**
 	  * Increases the value of the missed property
 	  * Removes a life from the scoreboard
 	  * Checks if the player has remaining lives and ends the game if the player is out
 	  */
-	  removeLife() {
+	  // removeLife() {
 
-	  }
+	  // }
 
 	  /**
 	  * Displays game over message
