@@ -74,9 +74,15 @@ class Game {
 	  * Removes a life from the scoreboard
 	  * Checks if the player has remaining lives and ends the game if the player is out
 	  */
-	  // removeLife() {
-
-	  // }
+	  removeLife() {
+	  	const hearts = document.querySelector('.tries');
+	  	hearts.innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
+	  	if ( this.activePhrase.checkLetter === false ) {
+	  		hearts.innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
+	  		this.missed += 1;
+	  		return this.missed;
+	  	}
+	  }
 
 	  /**
 	  * Displays game over message
