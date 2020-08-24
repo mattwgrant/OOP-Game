@@ -60,17 +60,15 @@ class Game {
 	  */
 	  checkForWin() {
 	  	const active = document.querySelectorAll('#phrase ul li');
-	  	const condition = function (letter) {
-	  		for ( let i = 0; i < active.length; i++ ) {
-	  			if( active[i].className.charAt(0) === 's') {
-	  				return true;
-	  			} else {
-	  				return false;
-	  			}
-	  		}
-	  	};
-	  	active.every(condition);
+	  	const activeArray = Array.from(active);
+	  	let rightAnswer = activeArray.filter(letter => letter.className.charAt(0) === 's');
+	  	if (activeArray.length === rightAnswer.length) {
+	  		return true;
+	  	} else {
+	  		return false;
+	  	}
 	  }
+	 
 	  /**
 	  * Increases the value of the missed property
 	  * Removes a life from the scoreboard
