@@ -49,7 +49,7 @@ class Phrase {
 	  * @param {string} letter - Letter to display
 	  */
 	  showMatchedLetter(letter) {
-  		let letterToDisplay = document.getElementsByClassName(`hide letter ${letter}`);
+  		let letterToDisplay = document.querySelectorAll(`.hide.letter.${letter}`);
   		for ( let i = 0; i < letterToDisplay.length; i++ ) {
   			letterToDisplay[i].className = `show letter ${letter}`;
   			// console.log(letterToDisplay[i]);
