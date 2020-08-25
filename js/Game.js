@@ -77,21 +77,23 @@ class Game {
 	  removeLife() {
 	  	let hearts = document.querySelectorAll('#scoreboard ol li');
 	  	const heartsArray = Array.from(hearts);
+	  	// let index = 0;
 	  	// const nextHeart = heartsArray.find(heart => heart.next);
-	  	for ( let i = 0; i < heartsArray.length; i++ )
-		  	if ( heartsArray[i].className = 'tries') {
-		  		heartsArray[i].innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
+	  	// heartsArray.forEach((heart) => {
+		  	if ( heartsArray[`${this.missed}`].className === 'tries') {
+		  		heartsArray[`${this.missed}`].innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
 		  		this.missed += 1;
 		  		if (this.missed === 5) {
 		  			this.gameOver();
 		  		}
 		  		return this.missed;
-		  		// break;
-		  	} else {
-		  		heartsArray[i].next.innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
-		  		this.missed += 1;
-		  		return this.missed;
+		  	
+		  	// else {
+		  	// 	heartsArray[i].next.innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
+		  	// 	this.missed += 1;
+		  	// 	return this.missed;
 		  	}
+		// });
 	  }
 
 	  /**
@@ -99,7 +101,7 @@ class Game {
 	  * @param {boolean} gameWon - Whether or not the user won the game
 	  */
 	  gameOver(gameWon) {
-	  	if (true) {
+	  	if (this.checkForWin() === true) {
 	  		const win = document.querySelector('#game-over-message');
 	  		const overlay = document.querySelector('#overlay');
 	  		win.textContent = "Great job! You won!"
