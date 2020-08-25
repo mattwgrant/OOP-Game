@@ -33,7 +33,7 @@ class Phrase {
 	 * @param {string} letter - Letter to check
      */
 	 checkLetter(letter) {
-	  let currentPhrase = game.activePhrase.phrase;
+	  let currentPhrase = this.phrase;
 	  	
 	  if ( currentPhrase.indexOf(letter) > -1 ) {
 	  	return true

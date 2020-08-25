@@ -75,24 +75,44 @@ class Game {
 	  * Checks if the player has remaining lives and ends the game if the player is out
 	  */
 	  removeLife() {
-	  	const hearts = document.querySelector('.tries');
-	  	hearts.innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
-	  	if ( this.activePhrase.checkLetter === false ) {
-	  		hearts.innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
-	  		this.missed += 1;
-	  		return this.missed;
-	  	}
+	  	let hearts = document.querySelectorAll('#scoreboard ol li');
+	  	const heartsArray = Array.from(hearts);
+	  	// const nextHeart = heartsArray.find(heart => heart.next);
+	  	for ( let i = 0; i < heartsArray.length; i++ )
+		  	if ( heartsArray[i].className = 'tries') {
+		  		heartsArray[i].innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
+		  		this.missed += 1;
+		  		if (this.missed === 5) {
+		  			this.gameOver();
+		  		}
+		  		return this.missed;
+		  		// break;
+		  	} else {
+		  		heartsArray[i].next.innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
+		  		this.missed += 1;
+		  		return this.missed;
+		  	}
 	  }
 
 	  /**
 	  * Displays game over message
-	  * @param {boolean} gameWon - Whether or note the user won the game
+	  * @param {boolean} gameWon - Whether or not the user won the game
 	  */
-	  // gameOver(gameWon) {
-	  // 	if () {
-
-	  // 	} else {
-
-	  // 	}
-	  // }
+	  gameOver(gameWon) {
+	  	if (true) {
+	  		const win = document.querySelector('#game-over-message');
+	  		const overlay = document.querySelector('#overlay');
+	  		win.textContent = "Great job! You won!"
+	  		overlay.style.visibility = 'initial';
+	  		overlay.className = 'overlay win';
+	  		return true;
+	  	} else if (this.missed === 5){
+	  		const lose = document.querySelector('#game-over-message');
+	  		const overlay = document.querySelector('#overlay');
+	  		lose.textContent = "Sorry, better luck next time!"
+	  		overlay.style.visibility = 'initial';
+	  		overlay.className = 'overlay lose';
+	  		return false;
+	  	}
+	  }
 }
