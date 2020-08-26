@@ -49,16 +49,19 @@ document.querySelector('#qwerty').addEventListener('click', (e) => {
 });
 
 document.addEventListener('keyup', (e) => {
-	let buttons = document.querySelectorAll('button');
-	for ( let i = 0; i < buttons.length; i++) {
+	let buttonsNode = document.querySelectorAll('button.key');
+	let buttons = Array.from(buttonsNode)[0];
+	// for ( let i = 0; i < buttons.length; i++) {
 		if ( e.code.split('Key').pop().toLowerCase() === buttons[i].textContent) {
 			console.log(`${e.code.split('Key').pop().toLowerCase()} matches ${buttons[i].textContent}`);
-			break;
+			game.handleInteraction(buttons); 
+			buttons.textContent = buttons.textContent.toUpperCase();
+			// break;
 		} else {
 			console.log(`${e.code.split('Key').pop().toLowerCase()} did not match anything`);
-			break;
+			// break;
 		}
-	}
+	// }
 });
 
 
