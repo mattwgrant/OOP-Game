@@ -46,13 +46,24 @@ class Game {
 	  * checkForWin(), removeLife(), gameOver() from Game class
 	  * checkLetter(), showMatchedLetter() from Phrase class
 	  */
-	 // handleInteraction() {
-	 // 	checkForWin();
-	 // 	removeLife();
-	 // 	gameOver();
-	 // 	checkLetter();
-	 // 	showMatchedLetter();
-	 // }
+	 handleInteraction(button) {
+	 	
+	 	if ( game.activePhrase.checkLetter(button.textContent) ) {
+				game.activePhrase.showMatchedLetter(button.textContent);
+				button.className = 'key chosen';
+				button.disabled = true;
+				this.checkForWin();
+				if (this.checkForWin()) {
+					this.gameOver();
+					this.resetBoard();
+				}
+			} else {
+				button.className = 'key wrong';
+				button.disabled = true;
+				this.removeLife();
+			}
+	 	console.log(button);
+	 }
 
 	 /**
 	  * Checks for winning move
@@ -77,6 +88,7 @@ class Game {
 	  removeLife() {
 	  	let hearts = document.querySelectorAll('#scoreboard ol li');
 	  	const heartsArray = Array.from(hearts);
+	  	
 	  	// let index = 0;
 	  	// const nextHeart = heartsArray.find(heart => heart.next);
 	  	// heartsArray.forEach((heart) => {
@@ -85,15 +97,10 @@ class Game {
 		  		this.missed += 1;
 		  		if (this.missed === 5) {
 		  			this.gameOver();
+		  			this.resetBoard();
 		  		}
 		  		return this.missed;
-		  	
-		  	// else {
-		  	// 	heartsArray[i].next.innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
-		  	// 	this.missed += 1;
-		  	// 	return this.missed;
 		  	}
-		// });
 	  }
 
 	  /**
@@ -101,20 +108,44 @@ class Game {
 	  * @param {boolean} gameWon - Whether or not the user won the game
 	  */
 	  gameOver(gameWon) {
+	  	// let list = document.querySelectorAll('#phrase ul li');
 	  	if (this.checkForWin() === true) {
 	  		const win = document.querySelector('#game-over-message');
 	  		const overlay = document.querySelector('#overlay');
 	  		win.textContent = "Great job! You won!"
 	  		overlay.style.visibility = 'initial';
 	  		overlay.className = 'overlay win';
+	  		// let removeLi = list.forEach((button) => {
+	  		// 	button.disabled = false;
+	  		// })
 	  		return true;
 	  	} else if (this.missed === 5){
 	  		const lose = document.querySelector('#game-over-message');
 	  		const overlay = document.querySelector('#overlay');
-	  		lose.textContent = "Sorry, better luck next time!"
+	  		lose.textContent = "Sorry, better luck next time!";
 	  		overlay.style.visibility = 'initial';
 	  		overlay.className = 'overlay lose';
 	  		return false;
 	  	}
+	  }
+
+	  resetBoard() {
+	  	const ul = document.querySelector('#phrase ul');
+	  	const list = document.querySelectorAll('#phrase ul li');
+	  	const hearts = document.querySelectorAll('#scoreboard ol li');
+	  	const heartsArray = Array.from(hearts);
+	  	const keysNodeList = document.querySelectorAll('.key');
+	  	const keys = Array.from(keysNodeList);
+	  	for ( let i = 0; i < list.length; i++ ) {
+	  		ul.removeChild(list[i]);
+	  	}
+	  	let enableHearts = heartsArray.forEach((heart) => {
+		  	heart.innerHTML = `<img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30">`
+		});
+		let resetKey = keys.forEach((key) => {
+			key.className = 'key';
+			key.disabled = false;
+		});
+
 	  }
 }

@@ -29,6 +29,37 @@ document.getElementById('btn__reset').addEventListener('click', () => {
 	game.startGame();
 });
 
+/**
+ * Handles onscreen keyboard button clicks
+ * @param (HTMLButtonELement) button - The clicked button element
+ */
+document.querySelector('#qwerty').addEventListener('click', (e) => {
+	let letters = document.querySelectorAll('button')
+	for ( let i = 0; i < letters.length; i++ ) {
+		if (e.target && e.target.nodeName == 'BUTTON') {
+		// 		console.log(game.activePhrase.checkLetter(e.target.textContent));
+				game.handleInteraction(e.target); 
+				break;
+			// if ( game.activePhrase.checkLetter(e.target.textContent) ) {
+			// 	game.activePhrase.showMatchedLetter(e.target.textContent);
+			// 	e.target.className = 'key chosen';
+			// 	break;
+			// } else {
+			// 	e.target.className = 'key wrong';
+			// 	game.removeLife();
+			// 	break;
+			// }
+		} else {
+			break;
+		}
+	}
+});
+
+
+// handleInteraction(button) {
+// 	console.log(button);
+// };
+
 
 
 
