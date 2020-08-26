@@ -34,31 +34,30 @@ document.getElementById('btn__reset').addEventListener('click', () => {
  * @param (HTMLButtonELement) button - The clicked button element
  */
 document.querySelector('#qwerty').addEventListener('click', (e) => {
-	let letters = document.querySelectorAll('button')
+	let letters = document.querySelectorAll('button');
 	for ( let i = 0; i < letters.length; i++ ) {
 		if (e.target && e.target.nodeName == 'BUTTON') {
-		// 		console.log(game.activePhrase.checkLetter(e.target.textContent));
 				game.handleInteraction(e.target); 
 				break;
-			// if ( game.activePhrase.checkLetter(e.target.textContent) ) {
-			// 	game.activePhrase.showMatchedLetter(e.target.textContent);
-			// 	e.target.className = 'key chosen';
-			// 	break;
-			// } else {
-			// 	e.target.className = 'key wrong';
-			// 	game.removeLife();
-			// 	break;
-			// }
 		} else {
 			break;
 		}
 	}
 });
 
+document.addEventListener('keyup', (e) => {
+	let buttons = document.querySelectorAll('button');
+	for ( let i = 0; i < buttons.length; i++) {
+		if ( e.code.split('Key').pop().toLowerCase() === buttons[i].textContent) {
+			console.log(`${e.code.split('Key').pop().toLowerCase()} matches ${buttons[i].textContent}`);
+			break;
+		} else {
+			console.log(`${e.code.split('Key').pop().toLowerCase()} did not match anything`);
+			break;
+		}
+	}
+});
 
-// handleInteraction(button) {
-// 	console.log(button);
-// };
 
 
 

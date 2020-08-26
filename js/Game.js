@@ -88,10 +88,6 @@ class Game {
 	  removeLife() {
 	  	let hearts = document.querySelectorAll('#scoreboard ol li');
 	  	const heartsArray = Array.from(hearts);
-	  	
-	  	// let index = 0;
-	  	// const nextHeart = heartsArray.find(heart => heart.next);
-	  	// heartsArray.forEach((heart) => {
 		  	if ( heartsArray[`${this.missed}`].className === 'tries') {
 		  		heartsArray[`${this.missed}`].innerHTML = `<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30">`;
 		  		this.missed += 1;
@@ -129,6 +125,9 @@ class Game {
 	  	}
 	  }
 
+	  /*
+	   * Function that is called once the game is over to reset everything on the board
+	   */
 	  resetBoard() {
 	  	const ul = document.querySelector('#phrase ul');
 	  	const list = document.querySelectorAll('#phrase ul li');
