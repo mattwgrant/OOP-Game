@@ -62,7 +62,6 @@ class Game {
 				button.disabled = true;
 				this.removeLife();
 			}
-	 	console.log(button);
 	 }
 
 	 /**
@@ -104,16 +103,13 @@ class Game {
 	  * @param {boolean} gameWon - Whether or not the user won the game
 	  */
 	  gameOver(gameWon) {
-	  	// let list = document.querySelectorAll('#phrase ul li');
 	  	if (this.checkForWin() === true) {
 	  		const win = document.querySelector('#game-over-message');
 	  		const overlay = document.querySelector('#overlay');
 	  		win.textContent = "Great job! You won!"
 	  		overlay.style.visibility = 'initial';
 	  		overlay.className = 'overlay win';
-	  		// let removeLi = list.forEach((button) => {
-	  		// 	button.disabled = false;
-	  		// })
+	 
 	  		return true;
 	  	} else if (this.missed === 5){
 	  		const lose = document.querySelector('#game-over-message');
@@ -121,6 +117,7 @@ class Game {
 	  		lose.textContent = "Sorry, better luck next time!";
 	  		overlay.style.visibility = 'initial';
 	  		overlay.className = 'overlay lose';
+
 	  		return false;
 	  	}
 	  }

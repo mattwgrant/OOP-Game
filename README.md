@@ -11,3 +11,6 @@ For my personal styling, I changed the colors of the background of the on screen
 when a letter is correct or incorrect, as well as the background color of the letters when
 they are displayed on the board. I also, though through JS, capitalized the letter
 on the key when it has been chosen, whether correct or incorrect.
+
+I have also put in an event listener for the keyup event that makes the physical keyboard
+or the onscreen keyboard both work in the same fashion.
