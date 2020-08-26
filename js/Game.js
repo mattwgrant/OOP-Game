@@ -144,6 +144,7 @@ class Game {
 		let resetKey = keys.forEach((key) => {
 			key.className = 'key';
 			key.disabled = false;
+			key.textContent = key.textContent.toLowerCase();
 		});
 
 	  }

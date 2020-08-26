@@ -38,11 +38,14 @@ document.querySelector('#qwerty').addEventListener('click', (e) => {
 	for ( let i = 0; i < letters.length; i++ ) {
 		if (e.target && e.target.nodeName == 'BUTTON') {
 				game.handleInteraction(e.target); 
+				e.target.textContent = e.target.textContent.toUpperCase();
 				break;
 		} else {
 			break;
 		}
 	}
+
+
 });
 
 document.addEventListener('keyup', (e) => {
