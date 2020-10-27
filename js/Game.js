@@ -51,6 +51,7 @@ class Game {
 	 	if ( game.activePhrase.checkLetter(button.textContent) ) {
 				game.activePhrase.showMatchedLetter(button.textContent);
 				button.className = 'key chosen';
+				button.textContent = button.textContent.toUpperCase();
 				button.disabled = true;
 				this.checkForWin();
 				if (this.checkForWin()) {
@@ -59,6 +60,7 @@ class Game {
 				}
 			} else {
 				button.className = 'key wrong';
+				button.textContent = button.textContent.toUpperCase();
 				button.disabled = true;
 				this.removeLife();
 			}

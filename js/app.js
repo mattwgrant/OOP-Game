@@ -15,9 +15,8 @@ document.querySelector('#qwerty').addEventListener('click', (e) => {
 	let letters = document.querySelectorAll('button');
 	for ( let i = 0; i < letters.length; i++ ) {
 		if (e.target && e.target.nodeName == 'BUTTON') {
-				game.handleInteraction(e.target); 
-				e.target.textContent = e.target.textContent.toUpperCase();
-				break;
+			game.handleInteraction(e.target); 
+			break;
 		} else {
 			break;
 		}
@@ -32,7 +31,6 @@ document.addEventListener('keyup', (e) => {
 	let find = buttons.filter((button) => {
 		if ( e.code.split('Key').pop().toLowerCase() === button.textContent) {
 			game.handleInteraction(button); 
-			button.textContent = button.textContent.toUpperCase();
 		} 
 	})
 });
